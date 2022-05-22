@@ -14,10 +14,10 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbTagData => response.json(dbTagData))
+    .then(dbTagData => res.json(dbTagData))
     .catch(err => {
       console.log(err);
-      response.status(500).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -37,14 +37,14 @@ router.get('/:id', (req, res) => {
   })
     .then(dbTagData => {
       if (!dbTagData) {
-        response.status(404).json({ message: 'No tag was found with this id'});
+        res.status(404).json({ message: 'No tag was found with this id'});
         return;
       }
-      response.json(dbTagData);
+      res.json(dbTagData);
     })
     .catch(err => {
       console.log(err);
-      response.status(500).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -53,10 +53,10 @@ router.post('/', (req, res) => {
   Tag.create({
     tag_name: req.body.tag_name
   })
-    .then(dbTagData => response.json(dbTagData))
+    .then(dbTagData => res.json(dbTagData))
     .catch(err => {
         console.log(err);
-        response.status(500).json(err);
+        res.status(500).json(err);
   });
 });
 
@@ -69,14 +69,14 @@ router.put('/:id', (req, res) => {
   })
     .then(dbTagData => {
         if (!dbTagData[0]) {
-            response.status(404).json({ message: 'No tag was found with this id'});
+            res.status(404).json({ message: 'No tag was found with this id'});
             return;
         }
-        response.json(dbTagData);
+        res.json(dbTagData);
   })
     .catch(err => {
         console.log(err); 
-        response.status(500).json(err);
+        res.status(500).json(err);
   });
 });
 
@@ -89,14 +89,14 @@ router.delete('/:id', (req, res) => {
   })
     .then(dbTagData => {
         if (!dbTagData) {
-            response.status(404).json({ message: 'No tag was found with this id'});
+            res.status(404).json({ message: 'No tag was found with this id'});
             return;
         }
-        response.json(dbTagData);
+        res.json(dbTagData);
   })
     .catch(err => {
         console.log(err);
-        response.status(500).json(err);
+        res.status(500).json(err);
   });
 });
 

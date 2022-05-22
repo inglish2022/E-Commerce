@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbProductData => response.json(dbProductData))
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
       console.log(err);
-      response.status(500).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -46,14 +46,14 @@ router.get('/:id', (req, res) => {
   })
     .then(dbProductData => {
       if (!dbProductData) {
-        response.status(404).json({ message: 'No product was found with this id'}); 
+        res.status(404).json({ message: 'No product was found with this id'}); 
         return; 
       }
-      response.json(dbCProductData);
+      res.json(dbCProductData);
     })
     .catch(err => {
       console.log(err);
-      response.status(500).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -88,12 +88,12 @@ router.post('/', (req, res) => {
         return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
-      response.status(200).json(product);
+      res.status(200).json(product);
     })
-    .then((productTagIds) => response.status(200).json(productTagIds))
+    .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
       console.log(err);
-      response.status(400).json(err);
+      res.status(400).json(err);
     });
 });
 
@@ -132,10 +132,10 @@ router.put('/:id', (req, res) => {
         ProductTag.bulkCreate(newProductTags),
       ]);
     })
-    .then((updatedProductTags) => response.json(updatedProductTags))
+    .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
       // console.log(err);
-      response.status(400).json(err);
+      res.status(400).json(err);
     });
 });
 
@@ -148,14 +148,14 @@ router.delete('/:id', (req, res) => {
   })
     .then(dbProductData => {
         if (!dbProductData) {
-            response.status(404).json({ message: 'No product found with this id'});
+            res.status(404).json({ message: 'No product found with this id'});
             return;
         }
-        response.json(dbProductData);
+        res.json(dbProductData);
   })
     .catch(err => {
         console.log(err);
-        response.status(500).json(err);
+        res.status(500).json(err);
   });
 });
 
