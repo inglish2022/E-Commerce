@@ -19,7 +19,7 @@ The user needs to clone the repository from GitHub.  They need to install (if no
 
 
 ## License
-Licensed under the [MIT license] (LICENSE).
+Licensed under the MIT.
 
 ## Contributing
 Inglish Foust
