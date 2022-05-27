@@ -15,6 +15,10 @@ The user needs to clone the repository from GitHub.  They need to install (if no
 
 ## Usage
 
+You can view the walkthrough video for E-commerce here - https://drive.google.com/file/d/1J7aZ9nrv2NRYtJOad9Whj4TuSkwsr1cW/view
+
+Here is the video for the E-Commerce and Insomnia walkthrough
+https://drive.google.com/file/d/1scFK6Et9h9oRlGHDboamyk2s_4GOn0ep/view
 
 
 
